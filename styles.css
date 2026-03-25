@@ -1,0 +1,136 @@
+/* Estilos inspirados na Netflix */
+
+/* Variáveis de tema: usadas para manter consistência de cores */
+:root{
+    /* cor de fundo principal */
+    --bg:#141414;
+    /* cor de cartões/áreas escuras */
+    --card:#1f1f1f;
+    /* vermelho de destaque */
+    --red:#e50914;
+    /* cor do texto principal */
+    --text:#ffffff;
+    /* cor de texto secundário */
+    --muted:#b3b3b3;
+}
+
+/* box-sizing: inclui padding e border dentro da largura/altura dos elementos */
+*{box-sizing:border-box}
+
+/* garante que html e body possam ter 100% de altura da viewport */
+html,body{height:100%}
+
+body{
+    /* remove a margem padrão do body */
+    margin:0;
+    /* Centralização vertical e horizontal */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* define a pilha de fontes com fallbacks */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    /* fundo em gradiente para profundidade visual */
+    background:linear-gradient(180deg,var(--bg),#0f0f0f);
+    /* cor padrão do texto */
+    color:var(--text);
+    /* suaviza renderização de fontes em WebKit */
+    -webkit-font-smoothing:antialiased;
+    /* suaviza renderização de fontes em macOS/Firefox */
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/* cabeçalho centralizado */
+header{
+    display:flex; /* flexbox para alinhamento */
+    align-items:center; /* alinha verticalmente ao centro */
+    justify-content:center; /* centraliza horizontalmente */
+    padding:3rem 1rem; /* espaçamento interno */
+}
+
+header h1{
+    margin:0; /* remove margem padrão do h1 */
+    font-size:2rem; /* tamanho da fonte do título */
+    letter-spacing:0.4px; /* espaçamento entre letras */
+}
+
+/* centraliza o conteúdo principal */
+main{
+    display:flex; /* usa flexbox */
+    justify-content:center; /* centraliza horizontalmente */
+    padding:0 1rem 4rem; /* espaçamento interno com bottom maior */
+}
+
+.profiles{
+    width:100%; /* ocupa toda a largura disponível */
+    max-width:980px; /* limita largura máxima para melhor leitura */
+}
+
+.profiles ul{
+    list-style:none; /* remove marcadores da lista */
+    padding:0; /* remove padding padrão */
+    margin:1rem 0; /* separação vertical */
+    display:grid; /* usa grid para layout responsivo */
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); /* colunas flexíveis */
+    gap:1.25rem; /* espaço entre itens */
+    align-items:start; /* alinha itens ao topo */
+}
+
+.profiles li{
+    display:flex; /* facilita centralização do conteúdo */
+    justify-content:center; /* centraliza horizontalmente */
+}
+
+.profile{
+    background:transparent; /* sem fundo por padrão */
+    border:0; /* remove bordas padrão */
+    padding:0; /* zera padding */
+    cursor:pointer; /* indica clicável */
+    text-decoration:none; /* remove sublinhado se for link */
+    color:inherit; /* herda cor do elemento pai */
+}
+
+.profile figure{
+    margin:0; /* remove margem padrão do figure */
+    display:flex; /* organiza conteúdo verticalmente */
+    flex-direction:column; /* empilha imagem e legenda */
+    align-items:center; /* centraliza horizontalmente */
+    gap:.6rem; /* espaçamento entre itens */
+}
+
+.profile img{
+    width:140px; /* largura fixa da imagem */
+    height:140px; /* altura fixa da imagem */
+    object-fit:cover; /* ajusta a imagem sem distorcer, cortando se necessário */
+    border-radius:8px; /* cantos arredondados */
+    display:block; /* evita espaços em linha */
+    border:2px solid transparent; /* borda inicial transparente para animação */
+    transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease; /* animações suaves */
+}
+
+.profile figcaption{
+    color:var(--muted); /* cor de texto secundária */
+    font-size:0.95rem; /* tamanho da fonte da legenda */
+    text-align:center; /* centraliza o texto */
+    font-family: 'Open Sans', sans-serif; /* fonte específica para legendas */
+}
+
+.profile:hover img,
+.profile:focus-visible img {
+    transform: scale(1.02); /* leve aumento ao passar o mouse ou focar */
+    border-color: #ffffff; /* altera a cor da borda para destaque */
+}
+
+button.profile:focus{outline:none /* remove outline padrão do navegador */}
+button.profile:focus-visible{outline:1px solid rgba(229,9,20,.25); /* outline acessível no foco */ outline-offset:2px}
+
+/* Responsividade: adaptações para telas maiores */
+@media (min-width:900px){
+    header h1{font-size:2.6rem} /* aumenta título em telas grandes */
+    .profile img{width:160px;height:160px} /* aumenta imagens */
+}
+
+/* Pequenas melhorias visuais */
+a.logo{color:var(--text); /* cor do link */ text-decoration:none /* remove sublinhado */}
+
+/* Helper: centraliza conteúdo quando main estiver vazio (recurso moderno) */
+body:has(main:empty){display:grid;place-items:center}
