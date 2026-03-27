@@ -13,46 +13,47 @@
 <body>
     <header>
         <h1>Quem está assistindo?</h1>
+        <button id="theme-toggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
     </header>
 
     <main>
         <section class="profiles" aria-label="Perfis de usuários">
-            <ul>
-                <li>
-                    <button class="profile" type="button" aria-label="Selecionar Perfil 1">
-                        <figure>
-                            <img src="/assets/perfil-1.jpg" alt="Imagem de personagem estilo gótico">
-                            <figcaption>Jerônimo</figcaption>
-                        </figure>
-                    </button>
-                </li>
-                 <li>
-                    <button class="profile" type="button" aria-label="Selecionar Perfil 2">
-                        <figure>
-                            <img src="/assets/perfil-2.jpg" alt="Chaleira do musical A Bela e a Fera">
-                            <figcaption>Lola Maria</figcaption>
-                        </figure>
-                    </button>
-                </li>
-                 <li>
-                    <button class="profile" type="button" aria-label="Selecionar Perfil 3">
-                        <figure>
-                            <img src="/assets/perfil-3.jpg" alt="sub-zero nórdico">
-                            <figcaption>Maria Isabel</figcaption>
-                        </figure>
-                    </button>
-                </li>
-                <li>
-                    <button class="profile" type="button" aria-label="Selecionar Perfil 4">
-                        <figure>
-                            <img src="/assets/perfil-4.jpg" alt="Imagem John Wick explosivo">
-                            <figcaption>John Wick</figcaption>
-                        </figure>
-                    </button>
-                </li>
-            </ul>
-        </section>
+    <ul class="profiles-list"> <li>
+            <button class="profile" type="button" aria-label="Selecionar Perfil 1">
+                <figure>
+                    <img src="/assets/perfil-1.jpg" alt="Imagem de personagem estilo gótico">
+                    <figcaption>Jerônimo</figcaption>
+                </figure>
+            </button>
+        </li>
+        <li>
+            <button class="profile" type="button" aria-label="Selecionar Perfil 2">
+                <figure>
+                    <img src="/assets/perfil-2.jpg" alt="Chaleira do musical A Bela e a Fera">
+                    <figcaption>Lola Maria</figcaption>
+                </figure>
+            </button>
+        </li>
+        <li>
+            <button class="profile" type="button" aria-label="Selecionar Perfil 3">
+                <figure>
+                    <img src="/assets/perfil-3.jpg" alt="sub-zero nórdico">
+                    <figcaption>Maria Isabel</figcaption>
+                </figure>
+            </button>
+        </li>
+        <li>
+            <button class="profile" type="button" aria-label="Selecionar Perfil 4">
+                <figure>
+                    <img src="/assets/perfil-4.jpg" alt="Imagem John Wick explosivo">
+                    <figcaption>John Wick</figcaption>
+                </figure>
+            </button>
+        </li>
+    </ul>
+</section>
     </main>
 
 </body>
+<script src="theme.js" defer></script>
 </html>

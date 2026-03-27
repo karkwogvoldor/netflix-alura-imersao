@@ -1,136 +1,197 @@
-/* Estilos inspirados na Netflix */
-
-/* Variáveis de tema: usadas para manter consistência de cores */
-:root{
-    /* cor de fundo principal */
-    --bg:#141414;
-    /* cor de cartões/áreas escuras */
-    --card:#1f1f1f;
-    /* vermelho de destaque */
-    --red:#e50914;
-    /* cor do texto principal */
-    --text:#ffffff;
-    /* cor de texto secundário */
-    --muted:#b3b3b3;
+/* ==========================================================================
+   VARIÁVEIS E SETUP GLOBAL
+   ========================================================================== */
+:root {
+    --bg: #141414;
+    --card: #1f1f1f;
+    --red: #e50914;
+    --text: #ffffff;
+    --muted: #b3b3b3;
+    --transition: 0.2s ease-in-out;
 }
 
-/* box-sizing: inclui padding e border dentro da largura/altura dos elementos */
-*{box-sizing:border-box}
+.light-theme {
+    --bg: #ffffff;
+    --card: #f4f4f4;
+    --red: #c1121f;
+    --text: #111111;
+    --muted: #4a4a4a;
+}
 
-/* garante que html e body possam ter 100% de altura da viewport */
-html,body{height:100%}
+* {
+    box-sizing: border-box;
+}
 
-body{
-    /* remove a margem padrão do body */
-    margin:0;
-    /* Centralização vertical e horizontal */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* O segredo da centralização "elevada":
+   Justify-content centraliza, e o padding-bottom empurra o bloco para cima.
+*/
+body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    /* define a pilha de fontes com fallbacks */
+    justify-content: center; 
+    align-items: center;
+    min-height: 100vh;
+    padding-bottom: 12vh; /* Ajuste este valor para subir ou descer o conjunto todo */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    /* fundo em gradiente para profundidade visual */
-    background:linear-gradient(180deg,var(--bg),#0f0f0f);
-    /* cor padrão do texto */
-    color:var(--text);
-    /* suaviza renderização de fontes em WebKit */
-    -webkit-font-smoothing:antialiased;
-    /* suaviza renderização de fontes em macOS/Firefox */
-    -moz-osx-font-smoothing:grayscale;
+    background: linear-gradient(180deg, var(--bg), #0f0f0f);
+    color: var(--text);
+    transition: background-color var(--transition), color var(--transition);
+    -webkit-font-smoothing: antialiased;
 }
 
-/* cabeçalho centralizado */
-header{
-    display:flex; /* flexbox para alinhamento */
-    align-items:center; /* alinha verticalmente ao centro */
-    justify-content:center; /* centraliza horizontalmente */
-    padding:3rem 1rem; /* espaçamento interno */
+/* ==========================================================================
+   CABEÇALHO (TÍTULO)
+   ========================================================================== */
+header {
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 2rem; /* Espaço seguro entre título e perfis */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-header h1{
-    margin:0; /* remove margem padrão do h1 */
-    font-size:2rem; /* tamanho da fonte do título */
-    letter-spacing:0.4px; /* espaçamento entre letras */
+header h1 {
+    margin: 0;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
-/* centraliza o conteúdo principal */
-main{
-    display:flex; /* usa flexbox */
-    justify-content:center; /* centraliza horizontalmente */
-    padding:0 1rem 4rem; /* espaçamento interno com bottom maior */
+#theme-toggle {
+    margin-left: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    padding: 0.4rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: var(--transition);
 }
 
-.profiles{
-    width:100%; /* ocupa toda a largura disponível */
-    max-width:980px; /* limita largura máxima para melhor leitura */
+#theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
-.profiles ul{
-    list-style:none; /* remove marcadores da lista */
-    padding:0; /* remove padding padrão */
-    margin:1rem 0; /* separação vertical */
-    display:grid; /* usa grid para layout responsivo */
-    grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); /* colunas flexíveis */
-    gap:1.25rem; /* espaço entre itens */
-    align-items:start; /* alinha itens ao topo */
+/* ==========================================================================
+   CONTEÚDO PRINCIPAL E PERFIS
+   ========================================================================== */
+main {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    padding: 0 2rem;
 }
 
-.profiles li{
-    display:flex; /* facilita centralização do conteúdo */
-    justify-content:center; /* centraliza horizontalmente */
+.profiles {
+    width: 100%;
 }
 
-.profile{
-    background:transparent; /* sem fundo por padrão */
-    border:0; /* remove bordas padrão */
-    padding:0; /* zera padding */
-    cursor:pointer; /* indica clicável */
-    text-decoration:none; /* remove sublinhado se for link */
-    color:inherit; /* herda cor do elemento pai */
+.profiles-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem; /* Espaçamento entre os perfis */
 }
 
-.profile figure{
-    margin:0; /* remove margem padrão do figure */
-    display:flex; /* organiza conteúdo verticalmente */
-    flex-direction:column; /* empilha imagem e legenda */
-    align-items:center; /* centraliza horizontalmente */
-    gap:.6rem; /* espaçamento entre itens */
+.profile {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
 }
 
-.profile img{
-    width:140px; /* largura fixa da imagem */
-    height:140px; /* altura fixa da imagem */
-    object-fit:cover; /* ajusta a imagem sem distorcer, cortando se necessário */
-    border-radius:8px; /* cantos arredondados */
-    display:block; /* evita espaços em linha */
-    border:2px solid transparent; /* borda inicial transparente para animação */
-    transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease; /* animações suaves */
+.profile figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
 }
 
-.profile figcaption{
-    color:var(--muted); /* cor de texto secundária */
-    font-size:0.95rem; /* tamanho da fonte da legenda */
-    text-align:center; /* centraliza o texto */
-    font-family: 'Open Sans', sans-serif; /* fonte específica para legendas */
+.profile img {
+    width: clamp(7rem, 15vw, 11rem);
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 3px solid transparent;
+    transition: transform var(--transition), border-color var(--transition);
 }
 
-.profile:hover img,
-.profile:focus-visible img {
-    transform: scale(1.02); /* leve aumento ao passar o mouse ou focar */
-    border-color: #ffffff; /* altera a cor da borda para destaque */
+.profile figcaption {
+    color: var(--muted);
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+    transition: color var(--transition);
 }
 
-button.profile:focus{outline:none /* remove outline padrão do navegador */}
-button.profile:focus-visible{outline:1px solid rgba(229,9,20,.25); /* outline acessível no foco */ outline-offset:2px}
-
-/* Responsividade: adaptações para telas maiores */
-@media (min-width:900px){
-    header h1{font-size:2.6rem} /* aumenta título em telas grandes */
-    .profile img{width:160px;height:160px} /* aumenta imagens */
+/* Efeito de Hover estilo Netflix */
+.profile:hover img {
+    transform: scale(1.05);
+    border-color: #e5e5e5;
 }
 
-/* Pequenas melhorias visuais */
-a.logo{color:var(--text); /* cor do link */ text-decoration:none /* remove sublinhado */}
+.profile:hover figcaption {
+    color: #ffffff;
+}
 
-/* Helper: centraliza conteúdo quando main estiver vazio (recurso moderno) */
-body:has(main:empty){display:grid;place-items:center}
+/* ==========================================================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+
+/* TABLETS (iPad e similares) */
+@media (max-width: 1024px) {
+    body {
+        padding-bottom: 8vh;
+    }
+    .profiles-list {
+        gap: 2rem;
+    }
+}
+
+/* MOBILE (Celulares) */
+@media (max-width: 600px) {
+    body {
+        justify-content: flex-start; /* No mobile, alinhamos ao topo para permitir scroll */
+        padding-top: 15vh;
+        padding-bottom: 5vh;
+    }
+
+    header {
+        margin-bottom: 1.5rem;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    .profiles-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas no celular */
+        gap: 2rem 1.5rem;
+    }
+
+    .profile img {
+        width: 100%;
+        max-width: 120px;
+    }
+}
+
+/* ACESSIBILIDADE */
+button.profile:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 4px;
+}
