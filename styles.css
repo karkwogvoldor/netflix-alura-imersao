@@ -100,7 +100,7 @@ main {
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Impede quebra de linha, mantendo os perfis em uma única linha */
     justify-content: center;
     gap: 2.5rem; /* Espaçamento entre os perfis */
 }
