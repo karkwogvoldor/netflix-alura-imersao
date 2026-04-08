@@ -38,7 +38,7 @@ export function createCard(item) {
         <div class="details-info">
             <span class="match-score">${getRandomMatchScore()}% relevante</span>
             <span class="age-badge ${ageBadge.class}">${ageBadge.text}</span>
-            <span class="duration">${getRandomDuration(item.progress)}</span>
+            <span class="duration">${item.duration || getRandomDuration(item.progress)}</span>
             <span class="resolution">HD</span>
         </div>
         <div class="details-tags">
