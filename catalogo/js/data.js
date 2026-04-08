@@ -3,7 +3,13 @@ export const categories = [
         title: "Filmes Premiados",
         items: [
             {
-                img: "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/aa5b9295-8f9c-44f5-809b-3f2b84badfbf/8a7dd34b09c9c25336a3d850d4c431455e1aaaf0.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom", top10: true, badge: "Clássico", badgeColor: "red",progress: 0,
+                img: "https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/aa5b9295-8f9c-44f5-809b-3f2b84badfbf/8a7dd34b09c9c25336a3d850d4c431455e1aaaf0.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom",
+                top10: true,
+                badge: "Clássico",
+                badgeColor: "red",
+                progress: 0,
+                title: "Interestellar",
+                description: "Uma equipe de exploradores viaja através de um buraco de minhoca em busca de um novo lar para a humanidade.",
                 duration: "2h 49m",
                 youtube: "https://www.youtube.com/watch?v=i6avfCqKcQo"
             },

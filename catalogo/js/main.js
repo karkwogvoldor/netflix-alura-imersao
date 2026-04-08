@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const item = categories[0].items[0];
             if (featuredBg && item.img) featuredBg.style.backgroundImage = `url('${item.img}')`;
             if (featuredTitleEl) featuredTitleEl.textContent = item.title || categories[0].title || 'Destaque';
-            if (featuredMetaEl) featuredMetaEl.textContent = item.duration || '';
+            // mostrar descrição curta quando disponível, caso contrário exibir a duração
+            if (featuredMetaEl) featuredMetaEl.textContent = item.description || item.duration || '';
 
             if (playBtn) playBtn.addEventListener('click', (e) => {
                 e.preventDefault();
