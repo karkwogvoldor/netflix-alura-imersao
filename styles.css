@@ -28,7 +28,7 @@ html, body {
 }
 
 /* O segredo da centralização "elevada":
-   Justify-content centraliza, e o padding-bottom empurra o bloco para cima.
+    Justify-content centraliza, e o padding-bottom empurra o bloco para cima.
 */
 body {
     display: flex;
@@ -45,7 +45,7 @@ body {
 }
 
 /* ==========================================================================
-   CABEÇALHO (TÍTULO)
+    CABEÇALHO (TÍTULO)
    ========================================================================== */
 header {
     text-align: center;
@@ -81,7 +81,7 @@ header h1 {
 }
 
 /* ==========================================================================
-   CONTEÚDO PRINCIPAL E PERFIS
+    CONTEÚDO PRINCIPAL E PERFIS
    ========================================================================== */
 main {
     width: 100%;
@@ -149,7 +149,7 @@ main {
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE (MEDIA QUERIES)
+    RESPONSIVIDADE (MEDIA QUERIES)
    ========================================================================== */
 
 /* TABLETS (iPad e similares) */
