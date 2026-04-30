@@ -47,8 +47,3 @@ Basta abrir o arquivo diretamente no seu navegador ou utilizar a extensão Live 
 Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais informações.
 
 Desenvolvido durante a Imersão Front-End da Alura.
-
-```### Dicas para o GitHub:
-1. **Imagens:** Se você tiver um print da tela do projeto, coloque na pasta `assets` e adicione no topo do README com: `![Preview do Projeto](./assets/preview.png)`.
-2. **Personalização:** Se você adicionou alguma funcionalidade extra (como um carrossel de vídeos ou consumo de API de filmes), adicione na seção de **Funcionalidades**.
-```
