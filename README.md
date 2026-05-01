@@ -3,7 +3,7 @@
 Projeto desenvolvido durante a Imersão Front-End da Alura. A aplicação consiste em uma interface responsiva inspirada na plataforma de streaming Netflix, focando em semântica HTML, estilização moderna com CSS e organização de layout.
 
 ## 🔗 Demonstração
-> em progresso.
+> [clique aqui para acessar o link](https://karkwogvoldor.github.io/netflix-alura-imersao/)
 
 ## 🛠️ Tecnologias Utilizadas
 
